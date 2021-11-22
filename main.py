@@ -6,7 +6,6 @@ stemmer = LancasterStemmer()
 
 import numpy
 import tflearn
-import tensorflow
 import random
 import json
 from tensorflow.python.framework import ops
@@ -51,7 +50,8 @@ except:
         for w in words:
             if w in wrds:
                 bag.append(1)
-            else: bag.append(0)
+            else:
+                bag.append(0)
         output_row = out_empty[:]
         output_row[labels.index(docs_y[x])] = 1
 
@@ -72,12 +72,13 @@ net = tflearn.fully_connected(net, 8)
 net = tflearn.fully_connected(net, len(output[0]), activation='softmax')
 net = tflearn.regression(net)
 model = tflearn.DNN(net)
-
-try:
-    model.load('model.tflearn')
-except:
-    model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-    model.save('model.tflearn')
+# try:
+#     model.load("model.tflearn")
+#
+# except:
+model = tflearn.DNN(net)
+model.fit(training, output, n_epoch=2000, batch_size=8, show_metric=True)
+model.save("model.tflearn")
 
 def bag_of_words(s, words):
     bag = [0 for _ in range(len(words))]

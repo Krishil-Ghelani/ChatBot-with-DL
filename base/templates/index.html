@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/da73edd720.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="static/style.css">
+
+
+    <title>Chatroom</title>
+</head>
+
+<body bgcolor="#07e3eb">
+
+    <!--From here the main window script starts -->
+    <div class="background">
+<!--        <img src={{url_for('static', filename='img_1.png')}} align="middle" height="100">-->
+
+    </div>
+    <div class="chat-window">
+        <div class="chat-title">
+            <div class="dp">
+                <img class="d" src="https://img.icons8.com/color/48/000000/user.png"/>
+            </div>
+            <div class="name">
+                <h3 class="n">chat bot</h3>
+            </div>
+        </div>
+        <div class="chat-message-space">
+        </div>
+        <div class="chat-message-box">
+            <div class="text-box">
+                <input type="text" class="text" placeholder="Type your text here...">
+            </div>
+            <div class="send-button">
+                <form action="/">
+                <input type="submit" class="submit" name="SUBMIT" value="Send">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--From here the navbar script starts
+
+
+
+
+
+    -->
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class="fas fa-dragon"></i>
+            <div class="logo_name">Dashboard</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">User</span>
+                </a>
+                <span class="tooltip">User</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-chat'></i>
+                    <span class="links_name">Messages</span>
+                </a>
+                <span class="tooltip">Messages</span>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Setting</span>
+                </a>
+                <span class="tooltip">Setting</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <i class='bx bxs-user'></i>
+                    <div class="name_job">
+                        {% if name%}
+                        <div class="name">
+                            {{ name }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            menuBtnChange();//calling the function(optional)
+        });
+
+        searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+            sidebar.classList.toggle("open");
+            menuBtnChange(); //calling the function(optional)
+        });
+
+        // following are the code to change sidebar button(optional)
+        function menuBtnChange() {
+            if (sidebar.classList.contains("open")) {
+                closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+            } else {
+                closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+            }
+        }
+    </script>
+</body>
+
+</html>

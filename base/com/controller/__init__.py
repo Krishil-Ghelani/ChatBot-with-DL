@@ -1,0 +1,1 @@
+from chatbot.base.com.controller import category_controller
