@@ -27,20 +27,27 @@
                 <img class="d" src="https://img.icons8.com/color/48/000000/user.png"/>
             </div>
             <div class="name">
-                <h3 class="n">chat bot</h3>
+                <h3 class="n">chat bot {{name}}</h3>
             </div>
         </div>
         <div class="chat-message-space">
         </div>
+        {% if message %}
+        <div class="message">
+            {% for i in message %}
+            {{i}}
+            {% endfor %}
+        </div>
+        {% endif %}
         <div class="chat-message-box">
-            <div class="text-box">
-                <input type="text" class="text" placeholder="Type your text here...">
-            </div>
-            <div class="send-button">
-                <form action="/">
-                <input type="submit" class="submit" name="SUBMIT" value="Send">
-                </form>
-            </div>
+            <form action="/chat" method="post">
+                <div class="text-box">
+                <input type="text" name="MESSAGE" class="text" placeholder="Type your text here...">
+                </div>
+                <div class="send-button">
+                <input type="submit" class="submit" value="Send">
+                    </div>
+            </form>
         </div>
     </div>
 
@@ -56,7 +63,6 @@
     -->
     <div class="sidebar">
         <div class="logo-details">
-            <i class="fas fa-dragon"></i>
             <div class="logo_name">Dashboard</div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
@@ -64,22 +70,21 @@
 
             <li>
                 <a href="#">
-                    <i class='bx bx-user'></i>
+                    <i class='bx bxs-user'></i>
                     <span class="links_name">User</span>
                 </a>
                 <span class="tooltip">User</span>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-chat'></i>
-                    <span class="links_name">Messages</span>
+                    <i class='bx bxs-help-circle bx-tada' ></i>
+                    <span class="links_name">Help</span>
                 </a>
-                <span class="tooltip">Messages</span>
+                <span class="tooltip">Help</span>
             </li>
-
             <li>
                 <a href="#">
-                    <i class='bx bx-cog'></i>
+                    <i class='bx bx-slider-alt bx-flip-vertical' ></i>
                     <span class="links_name">Setting</span>
                 </a>
                 <span class="tooltip">Setting</span>
@@ -88,11 +93,7 @@
                 <div class="profile-details">
                     <i class='bx bxs-user'></i>
                     <div class="name_job">
-                        {% if name%}
-                        <div class="name">
-                            {{ name }}
-                        </div>
-                        {% endif %}
+                        <div class="name">{{ name }}</div>
                     </div>
                 </div>
                 <i class='bx bx-log-out' id="log_out"></i>

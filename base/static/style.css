@@ -133,6 +133,11 @@ body{
   opacity: 0;
   transition: all 0.5s ease;
 }
+
+.bx-help{
+
+}
+
 .sidebar .logo-details .logo_name{
   color: black;
   font-size: 20px;
@@ -159,8 +164,15 @@ body{
 .sidebar.open .logo-details #btn{
   text-align: right;
 }
+.message{
+    border: thick;
+    color : black;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+
+
+}
 .sidebar i{
-  color: #0d4003;
+  color: black;
   height: 60px;
   min-width: 50px;
   font-size: 28px;
@@ -204,7 +216,7 @@ body{
 }
 .sidebar input{
   font-size: 15px;
-  color: #0d4003;
+  color: orchid;
   font-weight: 400;
   outline: none;
   height: 50px;
@@ -224,7 +236,7 @@ body{
   left: 0;
   transform: translateY(-50%);
   font-size: 22px;
-  background: #0d4003;
+  background: orchid;
   color: #1d1d1d;
 }
 .sidebar.open .bx-search:hover{
@@ -232,7 +244,7 @@ body{
 }
 .sidebar .bx-search:hover{
   background: #11101D;
-  color: #0d4003;
+  color: orchid;
 }
 .sidebar li a{
   display: flex;
@@ -310,7 +322,7 @@ body{
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background: #1d1b31;
+  background: whitesmoke;
   width: 100%;
   height: 60px;
   line-height: 60px;
@@ -319,7 +331,7 @@ body{
 }
 .sidebar.open .profile #log_out{
   width: 50px;
-  background: none;
+  background: white;
 }
 .home-section{
   position: relative;
